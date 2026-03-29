@@ -1,74 +1,28 @@
-# AI-Based Waste Segregation Assistant
-# Extended with RAG + Sustainability
-# Internship Submission Ready
+#📖 Project Overview
+This project is an AI-based system designed to analyze civic complaints in urban areas.
+It automatically categorizes complaints, assigns priority levels, and suggests actions to improve city services and quality of life.
 
-# ---------------- KNOWLEDGE BASE (RAG) ----------------
-waste_knowledge_base = {
-    "banana peel": "Organic waste that can be composted.",
-    "food waste": "Biodegradable waste suitable for composting.",
-    "paper": "Dry waste that can be recycled.",
-    "plastic bottle": "Recyclable waste. Should be cleaned before recycling.",
-    "glass bottle": "Recyclable but must be handled carefully.",
-    "battery": "Hazardous waste. Contains harmful chemicals.",
-    "medicine": "Expired medicines are hazardous waste.",
-    "e-waste": "Electronic waste contains toxic materials."
-}
+#❗ Problem Statement
+Manual processing of civic complaints is slow and inefficient, leading to delayed issue resolution and poor urban management.
 
-# ---------------- AI LOGIC ----------------
-def waste_segregation(item):
-    item = item.lower()
+#💡 Solution
+The AI assistant processes complaint text and:
 
-    # RAG: Retrieve information
-    retrieved_info = waste_knowledge_base.get(
-        item,
-        "No exact match found. Follow local waste management rules."
-    )
+Identifies the type of civic issue
+Evaluates urgency and priority
+Provides suitable recommendations using predefined civic rules
+#🌍 SDG Alignment
+SDG 11 – Sustainable Cities and Communities
+#
+🛠️ Technologies Used
+Python
+Rule-based AI logic
+Policy-based information retrieval
+Sample Input
+-street light is not working in my area
 
-    wet_waste = ["banana peel", "food waste"]
-    dry_waste = ["paper"]
-    recyclable_waste = ["plastic bottle", "glass bottle"]
-    hazardous_waste = ["battery", "medicine", "e-waste"]
+Sample Output
+-Category: Street Lighting Priority: High Recommendation: Fix street lights and ensure proper maintenance
 
-    if item in wet_waste:
-        category = "Wet Waste"
-        disposal = "Put in green bin for composting."
-
-    elif item in dry_waste:
-        category = "Dry Waste"
-        disposal = "Put in blue bin."
-
-    elif item in recyclable_waste:
-        category = "Recyclable Waste"
-        disposal = "Clean and put in recycling bin."
-
-    elif item in hazardous_waste:
-        category = "Hazardous Waste"
-        disposal = "Hand over to authorized collection center."
-
-    else:
-        category = "Unknown Waste"
-        disposal = "Check municipal waste guidelines."
-
-    # Sustainability message
-    sustainability_note = (
-        "Sustainability Impact: Proper waste segregation "
-        "reduces pollution, improves recycling, and supports "
-        "a cleaner environment."
-    )
-
-    return (
-        f"Category: {category}\n"
-        f"Disposal Method: {disposal}\n\n"
-        f"Retrieved Knowledge (RAG): {retrieved_info}\n\n"
-        f"{sustainability_note}"
-    )
-
-# ---------------- MAIN PROGRAM ----------------
-print("AI-Based Waste Segregation Assistant (RAG Enabled)")
-print("-------------------------------------------------")
-
-user_input = input("Enter waste item: ")
-result = waste_segregation(user_input)
-
-print("\nResult:")
-print(result)
+Conclusion
+This projec shows how AI can help city authorites analyze civic complaints efficently,reduce response time ,and improve
